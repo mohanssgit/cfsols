@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,i,a=0,b=0,j;
+    int *p,*q;
+    cin>>n;
+    int aa[n+10];
+    for(i=0; i<n; i++)
+    {
+        cin>>aa[i];
+    }
+    i=0;
+    j=n-1;
+    p=&aa[0];
+    q=&aa[n-1]; 
+    for(int k=0; k<n; k++)
+    {
+        if(k%2==0)
+        {
+            if(*p>*q)
+            {
+                a+=*p;
+                i++;
+                p=&aa[i];
+            }
+            else
+            {
+                a+=*q;
+                j--;
+                q=&aa[j];
+            }
+        }
+        else
+        {
+            if(*p>*q)
+            {
+                b+=*p;
+                i++;
+                p=&aa[i];
+            }
+            else
+            {
+                b+=*q;
+                j--;
+                q=&aa[j];
+            }
+        }
+
+    }
+    cout<<a<<" "<<b<<endl;
+    return 0;
+}
